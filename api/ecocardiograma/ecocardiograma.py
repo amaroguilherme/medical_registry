@@ -1,10 +1,11 @@
 def get_ecocardiograma(sheet):
   result = list()
+  filtered_sheet = list(filter(lambda x: len(x) == 12, sheet))
 
-  for p in sheet:
+  for p in filtered_sheet:
     period = dict()
 
-    period['Data'] = p[2].strftime("%d/%m/%Y")
+    period['Data'] = p[2]
 
     if p[8] == 'Não Cadastrado':
         period['Médico'] = p[9]
